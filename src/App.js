@@ -1,6 +1,6 @@
 import './App.css';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import Maps from './components/map/Maps';
+
 import Nav from './components/navbar/Nav';
 
 function App() {
@@ -12,14 +12,7 @@ function App() {
 				<h1>hello</h1>
 				<h1>hello world</h1>
 			</div>
-			<div className="leaflet-container">
-				<Map center={[45.4, -75.7]} zoom={12}>
-					<TileLayer
-						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					/>
-				</Map>
-			</div>
+			<Maps />
 		</>
 	);
 }
