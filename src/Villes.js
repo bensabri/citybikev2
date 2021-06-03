@@ -1,0 +1,30 @@
+const Villes = [
+	'marseille',
+	'brisbane',
+	'toulouse',
+	'ljubljana',
+	'lyon',
+	'dublin',
+	'nantes',
+	'santander',
+	'bruxelles',
+	'valence',
+	'cergy-pontoise',
+	'nancy',
+	'luxembourg',
+	'seville',
+	'besancon',
+	'mulhouse',
+	'creteil',
+	'rouen',
+	'toyama',
+	'lund',
+	'amiens',
+	'namur',
+	'vilnius',
+	'lillestrom',
+];
+export default Villes;
+//
+//
+//
