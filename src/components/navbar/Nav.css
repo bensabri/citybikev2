@@ -1,0 +1,35 @@
+.nav-bar {
+	background-color: #21a7f5;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 65px;
+	color: white;
+}
+
+.nav-bar img {
+	height: 45px;
+	width: 45px;
+	border-radius: 10px;
+}
+
+.nav-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 55%;
+}
+.nav-list li {
+	font-weight: 700;
+	cursor: pointer;
+	transition: color 250ms ease-in-out;
+}
+.nav-list li:hover {
+	color: hsl(0, 93%, 62%);
+}
+
+.btn-container {
+	background-color: hsl(0, 93%, 62%);
+	padding: 2px 5px 2px 5px;
+	border-radius: 5px;
+}

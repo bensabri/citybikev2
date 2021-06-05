@@ -1,4 +1,59 @@
 .leaflet-container {
-	width: 100%;
+	min-width: 25rem;
 	height: 70vh;
+	border-radius: 10px;
+}
+.grid-container {
+	box-shadow: 1px 1px 7px rgb(128, 128, 128);
+	border-radius: 10px;
+	padding: 30px;
+	margin: 2rem auto;
+	width: min(90%, 75rem);
+	display: grid;
+	grid-auto-flow: column;
+	gap: 1.5em;
+}
+.detail {
+	background-color: #f5f4f4;
+	min-width: 10rem;
+	height: 70vh;
+	text-align: center;
+	border-radius: 10px;
+}
+.select-container {
+	padding: 1.5rem;
+	display: grid;
+	grid-template-columns: 60% 20% 20%;
+}
+select {
+	border-radius: 5px;
+	margin-left: 10px;
+	outline: none;
+}
+.title {
+	padding-left: 50px;
+}
+.detail-station {
+	padding: 10px;
+	font-weight: 700;
+	font-size: 25px;
+}
+@media (max-width: 980px) {
+	.grid-container {
+		grid-auto-flow: row;
+	}
+}
+@media (max-width: 600px) {
+	.grid-container {
+		width: 100%;
+		border-radius: 0;
+		padding: 0;
+		margin: 0;
+	}
+	.detail {
+		width: 100%;
+	}
+	.leaflet-container {
+		width: 100%;
+	}
 }
