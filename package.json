@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@auth0/auth0-react": "^1.5.0",
 		"@craco/craco": "^6.1.2",
 		"@material-ui/core": "^4.11.4",
 		"@testing-library/jest-dom": "^5.11.4",
@@ -43,6 +44,7 @@
 	"devDependencies": {
 		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.2",
 		"autoprefixer": "^9",
+		"cross-env": "^7.0.3",
 		"postcss": "^7",
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat"
 	}

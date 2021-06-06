@@ -94,7 +94,7 @@ const Maps = () => {
 						</Map>
 					</div>
 				)}
-				<div className="detail dark:bg-gray-700">
+				<div className="detail dark:bg-gray-7-00">
 					<h1 className="detail-station">Detail de la station</h1>
 					<p>{status}</p>
 				</div>
