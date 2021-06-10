@@ -4,10 +4,8 @@ import axios from 'axios';
 import Selectcity from './Selectcity';
 import { useGlobalContext } from './../../context';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Icon } from 'leaflet';
-import green from '../../icons/cycling_green.png';
-import orange from '../../icons/cycling_orange.png';
-import red from '../../icons/cycling_red.png';
+import { greenBike, orangeBike, redBike } from './MapIcons';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 const Maps = () => {
 	const { data, setData, isFetch, setIsFetched, query, status, setStatus } =
@@ -23,21 +21,6 @@ const Maps = () => {
 	}, [query]);
 
 	const [first] = data;
-
-	const greenBike = new Icon({
-		iconUrl: green,
-		iconSize: [25, 28],
-	});
-	const orangeBike = new Icon({
-		iconUrl: orange,
-		iconSize: [25, 28],
-	});
-	const redBike = new Icon({
-		iconUrl: red,
-		iconSize: [25, 28],
-	});
-
-	console.log(data);
 
 	return (
 		<>
@@ -95,12 +78,16 @@ const Maps = () => {
 					</div>
 				)}
 				<div className="detail dark:bg-gray-7-00">
-					<h1 className="detail-station">Detail de la station</h1>
-					<p>{status}</p>
+					<h2 className="dark:text-black detail-station">
+						Detail de la station
+					</h2>
+					<p className="dark:text-black">{status}</p>
 				</div>
 			</div>
 		</>
 	);
 };
 
-export default Maps;
+export default withAuthenticationRequired(Maps, {
+	onRedirecting: () => <h1>Loading ...</h1>,
+});

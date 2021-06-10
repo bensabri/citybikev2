@@ -1,0 +1,22 @@
+.dark-container {
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.sun-icon-container {
+	transform: translateY(100%);
+	transition: opacity 450ms;
+	opacity: 0;
+}
+.sun-icon-container.open {
+	transform: translateY(0%);
+	opacity: 1;
+}
+
+/* .moon-icon-container {
+	transform: translateY(100%);
+	transition: transform 450ms;
+}
+.moon-icon-container.open {
+	transform: translateY(0%);
+} */

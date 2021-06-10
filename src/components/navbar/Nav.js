@@ -1,24 +1,39 @@
 import React from 'react';
-import Switch from './Switch';
+import Switcher from './SwitchNight';
 import './Nav.css';
 import logo from '../../images/BikeCity.jpg';
-import LoginButton from '../buttons/LoginButton';
-import LogoutButton from '../buttons/LogOutButton';
+import AuthenticationButton from '../buttons/Authentication-button';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
+import UserName from './UserName';
 
 const Nav = () => {
 	const { isAuthenticated } = useAuth0();
+
 	return (
 		<div className="nav-bar dark:bg-gray-700 ">
 			<img src={logo} alt="city-bike" />
-			<Switch />
+			<Switcher />
 			<ul className="nav-list">
-				<li>Acceuil</li>
-				<li>Réservation</li>
-				<li>Contact</li>
-				<li>A propos</li>
+				<li>
+					<Link to="/">Acceuil</Link>
+				</li>
+				{isAuthenticated && (
+					<li>
+						<Link to="/profil">Profil</Link>
+					</li>
+				)}
+
+				<li>
+					<Link to="/contact">Contact</Link>
+				</li>
+				<li>
+					<Link to="/apropos">A propos</Link>
+				</li>
 			</ul>
-			{isAuthenticated ? <LogoutButton /> : <LoginButton />}
+			{isAuthenticated && <UserName />}
+
+			<AuthenticationButton />
 		</div>
 	);
 };

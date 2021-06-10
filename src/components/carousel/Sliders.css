@@ -1,0 +1,32 @@
+.slider-container {
+	height: 90vh;
+	position: relative;
+}
+
+.sliders {
+	width: 100%;
+	height: 90vh;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.slider-detail h2 {
+	font-size: 40px;
+}
+.slider-detail p {
+	font-size: 20px;
+}
+
+.slider-detail {
+	position: absolute;
+	z-index: 2;
+	top: 35%;
+	left: 10%;
+	background-color: #47474765;
+	border-radius: 10px;
+	color: white;
+	padding: 10px;
+}

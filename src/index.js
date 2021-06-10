@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppProvider } from './context';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,15 +11,17 @@ const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 ReactDOM.render(
-	<AppProvider>
-		<Auth0Provider
-			domain={domain}
-			clientId={clientId}
-			redirectUri={window.location.origin}
-		>
-			<App />
-		</Auth0Provider>
-	</AppProvider>,
+	<Router>
+		<AppProvider>
+			<Auth0Provider
+				domain={domain}
+				clientId={clientId}
+				redirectUri={window.location.origin}
+			>
+				<App />
+			</Auth0Provider>
+		</AppProvider>
+	</Router>,
 	document.getElementById('root')
 );
 
