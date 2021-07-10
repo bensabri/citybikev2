@@ -20,7 +20,7 @@ const Nav = () => {
 				</li>
 				{isAuthenticated && (
 					<li>
-						<Link to="/profil">Profil</Link>
+						<Link to="/profil/api/v1/newuser">Profil</Link>
 					</li>
 				)}
 

@@ -9,6 +9,9 @@ const AppProvider = ({ children }) => {
 	const [query, setQuery] = useState('nantes');
 	const [status, setStatus] = useState('');
 	const [night, setNight] = useState(true);
+	const [userData, setUserData] = useState([]);
+	const [counter, setCounter] = useState(1);
+	const [loading, setLoading] = useState(true);
 
 	return (
 		<AppContext.Provider
@@ -25,6 +28,12 @@ const AppProvider = ({ children }) => {
 				setStatus,
 				night,
 				setNight,
+				userData,
+				setUserData,
+				counter,
+				setCounter,
+				loading,
+				setLoading,
 			}}
 		>
 			{children}

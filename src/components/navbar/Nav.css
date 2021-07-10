@@ -23,9 +23,12 @@
 	font-weight: 700;
 	cursor: pointer;
 	transition: color 250ms ease-in-out;
+	height: 10vh;
+	padding: 25px 0 7px 0;
 }
+
 .nav-list li:hover {
-	color: hsl(0, 93%, 62%);
+	border-bottom: white solid 3px;
 }
 
 .btn-container {

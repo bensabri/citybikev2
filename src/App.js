@@ -7,8 +7,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Route, Switch } from 'react-router-dom';
 import Contact from './components/contact/Contact';
 import Apropos from './components/a-propos/A-propos';
-// import ProtectedRoute from './auth/ProtectedRoute';
 import Profile from './components/authentication/Profile';
+import FetchAxios from './FetchAxios';
 
 function App() {
 	const { night } = useGlobalContext();
@@ -26,10 +26,14 @@ function App() {
 				</Switch>
 				{isAuthenticated && (
 					<div>
-						<Route path="/profil" component={Profile} />
+						<Route
+							path="/profil/api/v1/newuser"
+							component={Profile}
+						/>
 						<Maps />
 					</div>
 				)}
+				<FetchAxios />
 				<Switch>
 					<Route path="/contact" component={Contact} />
 					<Route path="/apropos" component={Apropos} />

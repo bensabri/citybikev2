@@ -1,13 +1,22 @@
 import React from 'react';
+import { useGlobalContext } from '../../context';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const UserName = () => {
+	const { userData, isFetch } = useGlobalContext();
 	const { user } = useAuth0();
-	const { name } = user;
+	const { sub } = user;
+
 	return (
 		<div>
-			<h2 className="text-sm">Bonjour</h2>
-			<p className="font-bold text-sm">{name}</p>
+			{isFetch &&
+				userData
+					.filter((user) => user.authid === sub)
+					.map((user, index) => (
+						<p key={index} className="font-normal text-sm">
+							Bonjour<strong> {user.lastname}</strong>
+						</p>
+					))}
 		</div>
 	);
 };
