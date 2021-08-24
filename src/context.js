@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+// import { useAuth0 } from '@auth0/auth0-react';
 
 const AppContext = React.createContext();
 
@@ -12,6 +13,9 @@ const AppProvider = ({ children }) => {
 	const [userData, setUserData] = useState([]);
 	const [counter, setCounter] = useState(1);
 	const [loading, setLoading] = useState(true);
+	const [isEditing, setIsEditing] = useState(false);
+	const [signed, setSigned] = useState(false);
+	const [hideBtnMap, setHideBtnMap] = useState(false);
 
 	return (
 		<AppContext.Provider
@@ -34,6 +38,12 @@ const AppProvider = ({ children }) => {
 				setCounter,
 				loading,
 				setLoading,
+				isEditing,
+				setIsEditing,
+				signed,
+				setSigned,
+				hideBtnMap,
+				setHideBtnMap,
 			}}
 		>
 			{children}

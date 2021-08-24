@@ -1,20 +1,30 @@
 import React from 'react';
 import axios from 'axios';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { useGlobalContext } from '../../context';
+import { useAuth0 } from '@auth0/auth0-react';
 import './Profile.css';
 
-const CreateProfil = ({ postUserData, setPostUserData }) => {
-	const { counter, setCounter, setIsFetched } = useGlobalContext();
+const UpdateProfil = ({ postUserData, setPostUserData }) => {
+	const { counter, setCounter, userData, isEditing, setIsEditing } =
+		useGlobalContext();
+	const { user } = useAuth0();
+	const { sub } = user;
+
+	const userId = userData.find((user) => user.authid === sub);
+	const { _id } = userId;
 
 	const submitForm = (e) => {
 		e.preventDefault();
 		try {
-			axios.post('http://localhost:5000/profil/api/user', postUserData);
+			axios.put(
+				`http://localhost:5000/profil/api/user/${_id}`,
+				postUserData
+			);
 			setCounter(counter + 1);
-			setIsFetched(true);
+			setIsEditing(!isEditing);
+			alert('Vos informations ont été mise à jour!');
 		} catch (error) {
-			alert(`L'adresse email est déjà utilisée`);
+			alert(`Vos informations n'ont pas pu être mise à jour`);
 		}
 	};
 
@@ -24,7 +34,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 				<div className="form-container dark:text-black">
 					<div className="flex-personel-info">
 						<h2 className="text-center text-xl font-bold">
-							Créer vos information Personnel
+							Modifier vos information Personnel
 						</h2>
 						<label htmlFor="firstname">Nom*:</label>
 						<input
@@ -118,12 +128,20 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 							<option value="male">Homme</option>
 							<option value="female">Femme</option>
 						</select>
-						<button
-							type="submit"
-							className="bg-green-400 text-white py-1.5 px-2.5 my-5 rounded-md"
-						>
-							Creer
-						</button>
+						<div className="btn-container-updateform">
+							<button
+								className="bg-red-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+								onClick={() => setIsEditing(!isEditing)}
+							>
+								Annuler
+							</button>
+							<button
+								type="submit"
+								className="bg-green-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+							>
+								Modifier
+							</button>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -131,6 +149,4 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 	);
 };
 
-export default withAuthenticationRequired(CreateProfil, {
-	onRedirecting: () => <h1>Loading ...</h1>,
-});
+export default UpdateProfil;

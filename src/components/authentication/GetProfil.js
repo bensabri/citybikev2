@@ -4,7 +4,7 @@ import { useGlobalContext } from '../../context';
 import './Profile.css';
 
 const GetProfil = () => {
-	const { userData } = useGlobalContext();
+	const { userData, isEditing, setIsEditing } = useGlobalContext();
 
 	const { user } = useAuth0();
 	const { sub } = user;
@@ -30,32 +30,43 @@ const GetProfil = () => {
 								className="personel-info-container text-black"
 								key={index}
 							>
-								<h2 className="text-center text-xl font-bold">
-									Vos infomation Personnel
-								</h2>
-								<p>
-									<strong>Nom:</strong> {firstname}
-								</p>
-								<p>
-									<strong>Prénon:</strong> {lastname}
-								</p>
-								<p>
-									<strong>Email:</strong> {email}
-								</p>
-								<p>
-									<strong>Age: </strong>
-									{age}
-									{` ${age > 1 ? 'ans' : 'an'} `}
-								</p>
-								<p>
-									<strong>Address:</strong> {address}
-								</p>
-								<p>
-									<strong>Gender:</strong> {gender}
-								</p>
-								{/* <button className="bg-red-400 text-white py-1.5 px-2.5 my-5 rounded-md">
-									Update
-								</button> */}
+								<div className="flex-personel-info">
+									<h2 className="text-center text-xl font-bold">
+										Vos infomation Personnel
+									</h2>
+									<div className="user-detail-container">
+										<p>
+											<strong>Nom:</strong> {firstname}
+										</p>
+										<p>
+											<strong>Prénon:</strong> {lastname}
+										</p>
+										<p>
+											<strong>Email:</strong> {email}
+										</p>
+										<p>
+											<strong>Age: </strong>
+											{age}
+											{` ${age > 1 ? 'ans' : 'an'} `}
+										</p>
+										<p>
+											<strong>Address:</strong> {address}
+										</p>
+										<p>
+											<strong>Gender:</strong> {gender}
+										</p>
+									</div>
+									{!isEditing && (
+										<button
+											onClick={() =>
+												setIsEditing(!isEditing)
+											}
+											className="bg-red-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+										>
+											Modifier
+										</button>
+									)}
+								</div>
 							</div>
 						)
 					)}

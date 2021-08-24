@@ -13,7 +13,10 @@ const UserName = () => {
 				userData
 					.filter((user) => user.authid === sub)
 					.map((user, index) => (
-						<p key={index} className="font-normal text-sm">
+						<p
+							key={index}
+							className="font-normal text-sm flex-wrap px-0.5"
+						>
 							Bonjour<strong> {user.lastname}</strong>
 						</p>
 					))}

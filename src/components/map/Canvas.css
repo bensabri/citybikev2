@@ -1,0 +1,35 @@
+.canvas-container {
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+button,
+button:active,
+button:focus {
+	outline: none;
+}
+
+canvas {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	height: 120px;
+}
+.hide {
+	display: none;
+}
+
+.btn-container-detail {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn-container > button {
+	color: white;
+	width: 100px;
+}

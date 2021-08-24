@@ -6,10 +6,18 @@ import { useGlobalContext } from './../../context';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { greenBike, orangeBike, redBike } from './MapIcons';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+import DetailStation from './DetailStation';
 
 const Maps = () => {
-	const { data, setData, isFetch, setIsFetched, query, status, setStatus } =
-		useGlobalContext();
+	const {
+		data,
+		setData,
+		isFetch,
+		setIsFetched,
+		query,
+		setStatus,
+		hideBtnMap,
+	} = useGlobalContext();
 
 	const URL = `https://api.jcdecaux.com/vls/v1/stations?contract=${query}&apiKey=55d7b7d4946a320c591ffa19aee2bbab6049dca3`;
 
@@ -17,6 +25,7 @@ const Maps = () => {
 		axios.get(URL).then((res) => {
 			setData(res.data);
 			setIsFetched(true);
+			console.log(res.data);
 		});
 	}, [query]);
 
@@ -24,64 +33,77 @@ const Maps = () => {
 
 	return (
 		<>
-			<Selectcity />
-			<div className="grid-container">
-				{isFetch && (
-					<div className="leaflet-container">
-						<Map
-							center={[first.position.lat, first.position.lng]}
-							zoom={12}
-							scrollWheelZoom={true}
+			<div>
+				<Selectcity />
+				<div className="grid-container">
+					{isFetch && (
+						<div
+							className={`leaflet-container ${
+								hideBtnMap && 'close'
+							}`}
 						>
-							<TileLayer
-								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-								attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-							/>
-							{data.map((bike, index) => (
-								<Marker
-									key={index}
-									position={bike.position}
-									icon={
-										bike.available_bikes === 0
-											? redBike
-											: bike.available_bikes <= 5
-											? orangeBike
-											: greenBike
-									}
-									onClick={() =>
-										setStatus(
-											`${bike.available_bikes} Vélo disponible dans cette station`
-										)
-									}
-								>
-									<Popup
+							<Map
+								center={[
+									first.position.lat,
+									first.position.lng,
+								]}
+								zoom={12}
+								scrollWheelZoom={true}
+							>
+								<TileLayer
+									url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+									attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+								/>
+								{data.map((bike, index) => (
+									<Marker
 										key={index}
-										position={[
-											bike.position.lat,
-											bike.position.lng,
-										]}
+										position={bike.position}
+										icon={
+											bike.available_bikes === 0
+												? redBike
+												: bike.available_bikes <= 5
+												? orangeBike
+												: greenBike
+										}
+										onClick={() =>
+											setStatus(
+												`${
+													bike.available_bikes === 0
+														? 'Désole plus aucun vélo disponible'
+														: `${
+																bike.available_bikes
+														  } Vélo disponible a la station ${bike.name.slice(
+																4,
+																50
+														  )}`
+												}`
+											)
+										}
 									>
-										<div>
-											<h2>
-												<strong>
-													Address:
-													<br />
-												</strong>
-												{bike.address}
-											</h2>
-											<p>{`${bike.available_bikes} Vélo disponible dans cette station`}</p>
-										</div>
-									</Popup>
-								</Marker>
-							))}
-						</Map>
-					</div>
-				)}
-				<div className="detail dark:bg-gray-7-00">
-					<h2 className="dark:text-black detail-station">
-						Detail de la station
-					</h2>
-					<p className="dark:text-black">{status}</p>
+										<Popup
+											key={index}
+											position={[
+												bike.position.lat,
+												bike.position.lng,
+											]}
+										>
+											<div>
+												<h2>
+													<strong>
+														Address:
+														<br />
+													</strong>
+													{bike.address}
+												</h2>
+												<p>{`${bike.available_bikes} Vélo disponible dans cette station`}</p>
+											</div>
+										</Popup>
+									</Marker>
+								))}
+							</Map>
+						</div>
+					)}
+					<DetailStation />
 				</div>
 			</div>
 		</>

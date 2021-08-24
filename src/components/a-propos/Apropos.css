@@ -1,7 +1,18 @@
 .apropos-container {
-	height: 30vh;
+	min-height: 100vh;
+	position: relative;
 }
 .apropos {
 	font-size: 30px;
 	font-weight: 700;
+}
+.apropos-container::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	background: #ed325f;
 }

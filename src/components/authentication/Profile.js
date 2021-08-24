@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import CreateProfil from './CreateProfil';
 import GetProfil from './GetProfil';
+import UpdateProfil from './UpdateProfil';
 import { useAuth0 } from '@auth0/auth0-react';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { useGlobalContext } from '../../context';
 import './Profile.css';
 
 const Profile = () => {
-	const { userData, loading } = useGlobalContext();
 	const { user } = useAuth0();
 	const { sub } = user;
 
@@ -19,7 +19,10 @@ const Profile = () => {
 		address: '',
 		gender: '',
 		authid: sub,
+		count: 0,
+		date: new Date(),
 	});
+	const { userData, loading, isEditing } = useGlobalContext();
 
 	let userCreated = userData.find((user) => user.authid === sub);
 
@@ -29,12 +32,19 @@ const Profile = () => {
 				<h1>Loading...</h1>
 			) : (
 				<div>
-					<GetProfil />
 					{!userCreated && (
 						<CreateProfil
 							postUserData={postUserData}
 							setPostUserData={setPostUserData}
 						/>
+					)}
+					{isEditing ? (
+						<UpdateProfil
+							postUserData={postUserData}
+							setPostUserData={setPostUserData}
+						/>
+					) : (
+						<GetProfil />
 					)}
 				</div>
 			)}

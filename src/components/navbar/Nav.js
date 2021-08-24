@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Switcher from './SwitchNight';
 import './Nav.css';
 import logo from '../../images/BikeCity.jpg';
@@ -9,18 +9,19 @@ import UserName from './UserName';
 
 const Nav = () => {
 	const { isAuthenticated } = useAuth0();
+	const [menu, setMenu] = useState(false);
 
 	return (
 		<div className="nav-bar dark:bg-gray-700 ">
 			<img src={logo} alt="city-bike" />
 			<Switcher />
-			<ul className="nav-list">
+			<ul className={`nav-list ${menu ? 'active' : ''}`}>
 				<li>
 					<Link to="/">Acceuil</Link>
 				</li>
 				{isAuthenticated && (
 					<li>
-						<Link to="/profil/api/v1/newuser">Profil</Link>
+						<Link to="/profil/api/user">Profil</Link>
 					</li>
 				)}
 
@@ -34,6 +35,10 @@ const Nav = () => {
 			{isAuthenticated && <UserName />}
 
 			<AuthenticationButton />
+			<div
+				className={`toggle ${menu ? 'active' : ''}`}
+				onClick={() => setMenu(!menu)}
+			></div>
 		</div>
 	);
 };

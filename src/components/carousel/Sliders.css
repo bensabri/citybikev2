@@ -1,6 +1,17 @@
 .slider-container {
 	height: 90vh;
 	position: relative;
+	margin-top: 10vh;
+}
+.slider-play-btn {
+	position: absolute;
+	bottom: 10px;
+	left: 49%;
+	z-index: 2;
+	color: #fff;
+}
+.play-btn {
+	font-size: 5rem;
 }
 
 .sliders {
@@ -13,13 +24,6 @@
 	bottom: 0;
 	right: 0;
 }
-.slider-detail h2 {
-	font-size: 40px;
-}
-.slider-detail p {
-	font-size: 20px;
-}
-
 .slider-detail {
 	position: absolute;
 	z-index: 2;
@@ -28,5 +32,22 @@
 	background-color: #47474765;
 	border-radius: 10px;
 	color: white;
-	padding: 10px;
+	padding: 10px 20px;
+}
+
+.slider-detail h2 {
+	font-size: 3.5rem;
+}
+.slider-detail p {
+	font-size: 1.2rem;
+}
+.Carousel-indicators-2 {
+	display: none;
+}
+@media (max-width: 500px) {
+	.slider-detail {
+		left: 2%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }

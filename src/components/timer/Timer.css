@@ -1,0 +1,11 @@
+.timer-container {
+	opacity: 0;
+	transition: opacity 250ms ease-in-out;
+}
+.timer-container.open {
+	display: flex;
+	opacity: 1;
+}
+.btn-timer-container {
+	display: flex;
+}

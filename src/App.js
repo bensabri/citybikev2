@@ -26,10 +26,7 @@ function App() {
 				</Switch>
 				{isAuthenticated && (
 					<div>
-						<Route
-							path="/profil/api/v1/newuser"
-							component={Profile}
-						/>
+						<Route path="/profil/api/user" component={Profile} />
 						<Maps />
 					</div>
 				)}

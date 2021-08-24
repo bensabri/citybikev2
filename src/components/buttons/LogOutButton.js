@@ -8,12 +8,12 @@ const LogoutButton = () => {
 		<button
 			style={{
 				backgroundColor: 'hsl(0, 93%, 62%)',
-				padding: '5px 15px',
-				borderRadius: '3px',
+				padding: '4px 10px',
+				borderRadius: '5px',
 			}}
 			onClick={() => logout({ returnTo: window.location.origin })}
 		>
-			Déconection
+			Déconnecté
 		</button>
 	);
 };
