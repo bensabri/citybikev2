@@ -22,15 +22,16 @@ const Timer = ({ expiryTimestamp }) => {
 	return (
 		<div>
 			<div className={`timer-container ${signed ? 'open' : ''}`}>
-				{(isRunning && (
+				{isRunning ? (
 					<button
-						className="bg-red-600 px-1 py-1.5 text-white rounded-md"
+						className="reservation-cancel-btn"
 						onClick={btnPause}
 					>
 						Annuler
 					</button>
-				)) || (
+				) : (
 					<button
+						className="reservation-btn"
 						onClick={() => {
 							const time = new Date();
 							time.setSeconds(time.getSeconds() + 1200); // Restarts to 20 minutes timer

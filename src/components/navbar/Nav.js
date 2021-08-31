@@ -12,23 +12,26 @@ const Nav = () => {
 	const [menu, setMenu] = useState(false);
 
 	return (
-		<div className="nav-bar dark:bg-gray-700 ">
+		<div className="nav-bar dark:bg-gray-800 ">
 			<img src={logo} alt="city-bike" />
 			<Switcher />
-			<ul className={`nav-list ${menu ? 'active' : ''}`}>
-				<li>
+			<ul
+				className={`nav-list ${menu ? 'active lg:dark:bg-black' : ''}`}
+				onClick={() => setMenu(!menu)}
+			>
+				<li className="hover:text-blue-400 hover:bg-white dark:hover:text-black">
 					<Link to="/">Acceuil</Link>
 				</li>
 				{isAuthenticated && (
-					<li>
+					<li className="hover:text-blue-400 hover:bg-white dark:hover:text-black">
 						<Link to="/profil/api/user">Profil</Link>
 					</li>
 				)}
 
-				<li>
+				<li className="hover:text-blue-400 hover:bg-white dark:hover:text-black">
 					<Link to="/contact">Contact</Link>
 				</li>
-				<li>
+				<li className="hover:text-blue-400 hover:bg-white dark:hover:text-black">
 					<Link to="/apropos">A propos</Link>
 				</li>
 			</ul>

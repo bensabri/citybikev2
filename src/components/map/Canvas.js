@@ -60,7 +60,7 @@ const Canvas = () => {
 
 	return (
 		<div className="canvas-container">
-			<h1 className={`dark:text-black ${hideBtnMap ? 'hide' : ''}`}>
+			<h1 className={`${hideBtnMap ? 'hide' : ''}`}>
 				<strong>Signature ici</strong>
 			</h1>
 			<canvas
@@ -71,7 +71,7 @@ const Canvas = () => {
 				onMouseMove={draw}
 				ref={canvasRef}
 			/>
-			<div className="dark:text-black btn-container-detail">
+			<div className="btn-container-detail">
 				{!hideBtnMap && <button onClick={eraseDraw}>Effacer</button>}
 				<Timer />
 			</div>

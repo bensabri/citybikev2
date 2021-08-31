@@ -17,6 +17,7 @@ const Maps = () => {
 		query,
 		setStatus,
 		hideBtnMap,
+		setSigned,
 	} = useGlobalContext();
 
 	const URL = `https://api.jcdecaux.com/vls/v1/stations?contract=${query}&apiKey=55d7b7d4946a320c591ffa19aee2bbab6049dca3`;
@@ -65,7 +66,7 @@ const Maps = () => {
 												? orangeBike
 												: greenBike
 										}
-										onClick={() =>
+										onClick={() => {
 											setStatus(
 												`${
 													bike.available_bikes === 0
@@ -77,8 +78,9 @@ const Maps = () => {
 																50
 														  )}`
 												}`
-											)
-										}
+											);
+											setSigned(null);
+										}}
 									>
 										<Popup
 											key={index}

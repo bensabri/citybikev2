@@ -41,9 +41,6 @@
 .slider-detail p {
 	font-size: 1.2rem;
 }
-.Carousel-indicators-2 {
-	display: none;
-}
 @media (max-width: 500px) {
 	.slider-detail {
 		left: 2%;

@@ -10,12 +10,27 @@
 }
 .flex-personel-info {
 	padding: 30px;
+	margin: 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	background-color: #f5f3f3;
 	height: 80vh;
+	box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+.flex-personel-info > input,
+select {
+	margin-bottom: 1.5rem;
+	padding: 0.4rem;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px;
+}
+.flex-personel-info:focus,
+input:focus,
+select:focus {
+	outline: none;
+	border: 3px solid #21a7f5;
 }
 
 .create-profile-container {
@@ -26,4 +41,12 @@
 	display: flex;
 	justify-content: space-around;
 	width: 250px;
+}
+.btn-create {
+	background-color: #12ac45;
+	min-width: 4.5rem;
+}
+.btn-modify {
+	background-color: rgb(248, 68, 68);
+	min-width: 4.5rem;
 }

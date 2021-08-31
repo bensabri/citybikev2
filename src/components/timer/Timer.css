@@ -6,6 +6,20 @@
 	display: flex;
 	opacity: 1;
 }
+
+.reservation-btn {
+	background-color: #12ac45;
+	color: white;
+	padding: 4px 10px;
+	border-radius: 5px;
+	min-width: 4.5rem;
+}
+.reservation-cancel-btn {
+	background-color: rgb(248, 68, 68);
+	color: white;
+	padding: 4px 10px;
+	border-radius: 5px;
+}
 .btn-timer-container {
 	display: flex;
 }

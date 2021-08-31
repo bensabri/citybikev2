@@ -8,7 +8,7 @@ const Selectcity = () => {
 
 	return (
 		<div
-			className={`select-container dark:bg-gray-700 ${
+			className={`select-container dark:bg-gray-800 ${
 				hideBtnMap ? 'hide' : ''
 			}`}
 		>

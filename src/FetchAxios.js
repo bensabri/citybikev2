@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useGlobalContext } from './context';
 
 const FetchAxios = () => {
-	const { setUserData, counter, setLoading, setIsFetched } =
-		useGlobalContext();
+	const { setUserData, counter, setLoading } = useGlobalContext();
 
 	useEffect(() => {
 		axios.get('http://localhost:5000/profil/api/user').then((res) => {

@@ -13,18 +13,23 @@ function Sliders() {
 			name: 'City Bike',
 			img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Melbourne_City_Bikes.JPG/1200px-Melbourne_City_Bikes.JPG',
 			description:
-				'City Bike vous accompagne dans 24 villes dans le monde ',
+				'City Bike vous accompagne dans plusieurs villes dans le monde, sélectionner votre ville',
 		},
 		{
 			name: 'City Bike',
 			img: 'https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2020/03/laptop-working-home.jpeg',
 			description: 'Trouvé la station la plus proche de chez vous',
 		},
+		{
+			name: 'City Bike',
+			img: 'https://le-velo-urbain.com/wp-content/uploads/2020/11/velo-singlespeed-speed-500-elops-2.jpg',
+			description: 'Récupère votre vélo',
+		},
 	];
 
 	return (
 		<>
-			<Carousel autoPlay={play} interval={5000}>
+			<Carousel indicators={false} autoPlay={play} interval={5000}>
 				{items.map((item, i) => (
 					<Item key={i} item={item} />
 				))}
@@ -53,7 +58,6 @@ function Item(props) {
 				<div className="slider-detail">
 					<h2>{props.item.name}</h2>
 					<p>{props.item.description}</p>
-					<Button>Check it out!</Button>
 				</div>
 
 				<img src={props.item.img} alt="" className="sliders" />

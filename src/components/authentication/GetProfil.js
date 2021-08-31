@@ -30,7 +30,7 @@ const GetProfil = () => {
 								className="personel-info-container text-black"
 								key={index}
 							>
-								<div className="flex-personel-info">
+								<div className="flex-personel-info dark:bg-gray-800 dark:text-white">
 									<h2 className="text-center text-xl font-bold">
 										Vos infomation Personnel
 									</h2>
@@ -61,7 +61,7 @@ const GetProfil = () => {
 											onClick={() =>
 												setIsEditing(!isEditing)
 											}
-											className="bg-red-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+											className="btn-modify text-white py-1.5 px-2.5 my-5 rounded-md"
 										>
 											Modifier
 										</button>

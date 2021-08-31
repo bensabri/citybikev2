@@ -32,15 +32,16 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 		<>
 			<form onSubmit={submitForm}>
 				<div className="form-container dark:text-black">
-					<div className="flex-personel-info">
+					<div className="flex-personel-info dark:bg-gray-800 dark:text-white">
 						<h2 className="text-center text-xl font-bold">
 							Modifier vos information Personnel
 						</h2>
-						<label htmlFor="firstname">Nom*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="firstname"
 							id="firstname"
+							placeholder="Nom"
 							required
 							value={postUserData.firstname}
 							onChange={(e) =>
@@ -50,12 +51,12 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="lastname">Prénon*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="lastname"
 							id="lastname"
+							placeholder="Prénon"
 							required
 							value={postUserData.lastname}
 							onChange={(e) =>
@@ -65,12 +66,12 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="email">Email*:</label>
 						<input
+							className="dark:text-black"
 							type="email"
 							name="email"
 							id="email"
+							placeholder="Email"
 							required
 							value={postUserData.email}
 							onChange={(e) =>
@@ -80,12 +81,12 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="age">Age*:</label>
 						<input
+							className="dark:text-black"
 							type="number"
 							name="age"
 							id="age"
+							placeholder="Age"
 							required
 							min="1"
 							value={postUserData.age}
@@ -97,11 +98,12 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 							}
 						/>
 
-						<label htmlFor="address">Address*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="address"
 							id="address"
+							placeholder="Address"
 							required
 							value={postUserData.address}
 							onChange={(e) =>
@@ -111,8 +113,8 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-						<label htmlFor="gender">Gender*</label>
 						<select
+							className="dark:text-black"
 							name="gender"
 							id="gender"
 							value={postUserData.gender}
@@ -124,7 +126,7 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						>
-							<option value="">Selectionner</option>
+							<option value="">Gender</option>
 							<option value="male">Homme</option>
 							<option value="female">Femme</option>
 						</select>

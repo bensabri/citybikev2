@@ -22,12 +22,13 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 		<>
 			<form onSubmit={submitForm}>
 				<div className="form-container dark:text-black">
-					<div className="flex-personel-info">
+					<div className="flex-personel-info dark:bg-gray-800 dark:text-white">
 						<h2 className="text-center text-xl font-bold">
 							Créer vos information Personnel
 						</h2>
 						<label htmlFor="firstname">Nom*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="firstname"
 							id="firstname"
@@ -43,6 +44,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 
 						<label htmlFor="lastname">Prénon*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="lastname"
 							id="lastname"
@@ -58,6 +60,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 
 						<label htmlFor="email">Email*:</label>
 						<input
+							className="dark:text-black"
 							type="email"
 							name="email"
 							id="email"
@@ -73,6 +76,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 
 						<label htmlFor="age">Age*:</label>
 						<input
+							className="dark:text-black"
 							type="number"
 							name="age"
 							id="age"
@@ -89,6 +93,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 
 						<label htmlFor="address">Address*:</label>
 						<input
+							className="dark:text-black"
 							type="text"
 							name="address"
 							id="address"
@@ -103,6 +108,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 						/>
 						<label htmlFor="gender">Gender*</label>
 						<select
+							className="dark:text-black"
 							name="gender"
 							id="gender"
 							value={postUserData.gender}
@@ -120,7 +126,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 						</select>
 						<button
 							type="submit"
-							className="bg-green-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+							className="btn-create bg-green-400 text-white py-1.5 px-2.5 my-5 rounded-md"
 						>
 							Creer
 						</button>

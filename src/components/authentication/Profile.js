@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import CreateProfil from './CreateProfil';
 import GetProfil from './GetProfil';
 import UpdateProfil from './UpdateProfil';
-import { useAuth0 } from '@auth0/auth0-react';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { useGlobalContext } from '../../context';
 import './Profile.css';
 

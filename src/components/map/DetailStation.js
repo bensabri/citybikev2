@@ -7,15 +7,13 @@ const DetailStation = () => {
 
 	return (
 		<div>
-			<div className="detail dark:bg-gray-7-00">
-				<h2 className="dark:text-black detail-station">
+			<div className="detail dark:bg-gray-800">
+				<h2 className="detail-station">
 					Detail de la {`${hideBtnMap ? 'reservation' : 'station'}`}
 				</h2>
 				<p
 					title={status}
-					className={`dark:text-black detailpara${
-						hideBtnMap ? 'long' : ''
-					}`}
+					className={`detailpara${hideBtnMap ? 'long' : ''}`}
 				>
 					{hideBtnMap
 						? `Votre réservation est prise en compte ${status.slice(

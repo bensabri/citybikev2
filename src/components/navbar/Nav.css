@@ -32,10 +32,10 @@
 	border-radius: 30px;
 }
 
-.nav-list li:hover {
+/* .nav-list li:hover {
 	background-color: #fff;
 	color: #21a7f5;
-}
+} */
 
 .btn-container {
 	background-color: rgb(42, 38, 250);
@@ -56,9 +56,10 @@
 
 	.nav-list {
 		display: none;
+		background: #21a7f5;
 	}
 	.nav-list.active {
-		background: #21a7f5;
+		/* background: #21a7f5; */
 		position: fixed;
 		top: 0;
 		left: 0;
