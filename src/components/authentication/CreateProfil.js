@@ -5,13 +5,13 @@ import { useGlobalContext } from '../../context';
 import './Profile.css';
 
 const CreateProfil = ({ postUserData, setPostUserData }) => {
-	const { counter, setCounter, setIsFetched } = useGlobalContext();
+	const { setCounter, setIsFetched } = useGlobalContext();
 
 	const submitForm = (e) => {
 		e.preventDefault();
 		try {
 			axios.post('http://localhost:5000/profil/api/user', postUserData);
-			setCounter(counter + 1);
+			setCounter((prevCounter) => prevCounter + 1);
 			setIsFetched(true);
 		} catch (error) {
 			alert(`L'adresse email est déjà utilisée`);
@@ -26,12 +26,12 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 						<h2 className="text-center text-xl font-bold">
 							Créer vos information Personnel
 						</h2>
-						<label htmlFor="firstname">Nom*:</label>
 						<input
 							className="dark:text-black"
 							type="text"
 							name="firstname"
 							id="firstname"
+							placeholder="Nom"
 							required
 							value={postUserData.firstname}
 							onChange={(e) =>
@@ -41,13 +41,12 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="lastname">Prénon*:</label>
 						<input
 							className="dark:text-black"
 							type="text"
 							name="lastname"
 							id="lastname"
+							placeholder="Prénon"
 							required
 							value={postUserData.lastname}
 							onChange={(e) =>
@@ -57,13 +56,12 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="email">Email*:</label>
 						<input
 							className="dark:text-black"
 							type="email"
 							name="email"
 							id="email"
+							placeholder="Email"
 							required
 							value={postUserData.email}
 							onChange={(e) =>
@@ -73,13 +71,12 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-
-						<label htmlFor="age">Age*:</label>
 						<input
 							className="dark:text-black"
 							type="number"
 							name="age"
 							id="age"
+							placeholder="Age"
 							required
 							min="1"
 							value={postUserData.age}
@@ -91,12 +88,12 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 							}
 						/>
 
-						<label htmlFor="address">Address*:</label>
 						<input
 							className="dark:text-black"
 							type="text"
 							name="address"
 							id="address"
+							placeholder="Address"
 							required
 							value={postUserData.address}
 							onChange={(e) =>
@@ -106,7 +103,6 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						/>
-						<label htmlFor="gender">Gender*</label>
 						<select
 							className="dark:text-black"
 							name="gender"
@@ -120,7 +116,7 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 								})
 							}
 						>
-							<option value="">Selectionner</option>
+							<option value="">Gender</option>
 							<option value="male">Homme</option>
 							<option value="female">Femme</option>
 						</select>

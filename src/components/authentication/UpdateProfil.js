@@ -132,14 +132,14 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 						</select>
 						<div className="btn-container-updateform">
 							<button
-								className="bg-red-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+								className="btn-cancel text-white py-1.5 px-2.5 my-5 rounded-md"
 								onClick={() => setIsEditing(!isEditing)}
 							>
 								Annuler
 							</button>
 							<button
 								type="submit"
-								className="bg-green-400 text-white py-1.5 px-2.5 my-5 rounded-md"
+								className="btn-create text-white py-1.5 px-2.5 my-5 rounded-md"
 							>
 								Modifier
 							</button>
