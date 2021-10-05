@@ -14,7 +14,6 @@ export default function SwitchesGroup() {
 	return (
 		<div onClick={handleChange} className="dark-container">
 			{night ? <Brightness7Icon /> : <Brightness2Icon />}
-			{/* <div className={`sun-icon-container ${night ? 'open' : ''} `}></div> */}
 		</div>
 	);
 }

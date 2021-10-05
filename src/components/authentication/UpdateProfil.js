@@ -17,7 +17,7 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 		e.preventDefault();
 		try {
 			axios.put(
-				`http://localhost:5000/profil/api/user/${_id}`,
+				`https://citybike2.herokuapp.com/profil/api/user/${_id}`,
 				postUserData
 			);
 			setCounter(counter + 1);

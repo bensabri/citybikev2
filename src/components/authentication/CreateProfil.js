@@ -10,7 +10,10 @@ const CreateProfil = ({ postUserData, setPostUserData }) => {
 	const submitForm = (e) => {
 		e.preventDefault();
 		try {
-			axios.post('http://localhost:5000/profil/api/user', postUserData);
+			axios.post(
+				'https://citybike2.herokuapp.com/profil/api/user',
+				postUserData
+			);
 			setCounter((prevCounter) => prevCounter + 1);
 			setIsFetched(true);
 		} catch (error) {

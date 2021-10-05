@@ -26,7 +26,6 @@ const Maps = () => {
 		axios.get(URL).then((res) => {
 			setData(res.data);
 			setIsFetched(true);
-			console.log(res.data);
 		});
 	}, [query]);
 

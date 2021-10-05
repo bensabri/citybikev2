@@ -7,7 +7,7 @@ const LoginButton = () => {
 
 	return (
 		<button className="btn-container" onClick={() => loginWithRedirect()}>
-			Connecte
+			Connection
 		</button>
 	);
 };

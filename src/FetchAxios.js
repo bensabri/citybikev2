@@ -6,10 +6,12 @@ const FetchAxios = () => {
 	const { setUserData, counter, setLoading } = useGlobalContext();
 
 	useEffect(() => {
-		axios.get('http://localhost:5000/profil/api/user').then((res) => {
-			setUserData(res.data);
-			setLoading(false);
-		});
+		axios
+			.get('https://citybike2.herokuapp.com/profil/api/user')
+			.then((res) => {
+				setUserData(res.data);
+				setLoading(false);
+			});
 	}, [counter]);
 
 	return <div></div>;
