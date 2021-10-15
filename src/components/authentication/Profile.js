@@ -10,17 +10,19 @@ const Profile = () => {
 	const { user } = useAuth0();
 	const { sub } = user;
 
-	const [postUserData, setPostUserData] = useState({
-		firstname: '',
-		lastname: '',
-		email: '',
-		age: '',
-		address: '',
-		gender: '',
-		authid: sub,
-		count: 0,
-		date: new Date(),
-	});
+	const [postUserData, setPostUserData] = useState([
+		{
+			firstname: '',
+			lastname: '',
+			email: '',
+			age: '',
+			address: '',
+			gender: '',
+			authid: sub,
+			count: 0,
+			date: new Date(),
+		},
+	]);
 	const { userData, loading, isEditing } = useGlobalContext();
 
 	let userCreated = userData.find((user) => user.authid === sub);

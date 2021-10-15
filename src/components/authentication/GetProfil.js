@@ -8,7 +8,7 @@ const GetProfil = () => {
 
 	const { user } = useAuth0();
 	const { sub } = user;
-
+	console.log(userData);
 	return (
 		<>
 			<div>
