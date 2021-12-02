@@ -26,7 +26,7 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 			alert(`Vos informations n'ont pas pu être mise à jour`);
 		}
 	};
-
+	console.log('login test');
 	return (
 		<>
 			<div className="form-container dark:text-black">
