@@ -12,7 +12,7 @@ const UpdateProfil = ({ postUserData, setPostUserData }) => {
 
 	const userId = userData.find((user) => user.authid === sub);
 	const { _id } = userId;
-
+	console.log('change');
 	const updateUser = () => {
 		try {
 			axios.put(
